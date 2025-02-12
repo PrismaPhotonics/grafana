@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  Grafana:
+    image: grafana:test1 #262399703539.dkr.ecr.eu-central-1.amazonaws.com/grafana:latest
+    container_name: grafana1
+    ports:
+      - 3000:3000
+    user: "$UID:$GID"
+    volumes:
+      - grafana_plugins_volume:/var/lib/grafana/plugins
+      - grafana_data_volume:/var/lib/grafana/
+      - grafana_log_volume:/var/log/grafana
+      - grafana_configuration_volume:/etc/grafana
+    restart: on-failure
+
+volumes:
+  grafana_data_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /prisma/data/grafana/data
+  grafana_log_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /prisma/logs/grafana
+  grafana_configuration_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /prisma/config/grafana
+  grafana_plugins_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /prisma/data/grafana/plugins

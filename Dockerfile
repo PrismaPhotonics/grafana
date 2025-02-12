@@ -106,7 +106,7 @@ ARG GRAFANA_TGZ="grafana-latest.linux-x64-musl.tar.gz"
 COPY ${GRAFANA_TGZ} /tmp/grafana.tar.gz
 
 # add -v to make tar print every file it extracts
-RUN tar x -z -f /tmp/grafana.tar.gz --strip-components=1
+# RUN tar x -z -f /tmp/grafana.tar.gz --strip-components=1
 
 # helpers for COPY --from
 FROM ${GO_SRC} as go-src
@@ -184,8 +184,9 @@ RUN if [ ! $(getent group "$GF_GID") ]; then \
              "$GF_PATHS_PROVISIONING/alerting" \
              "$GF_PATHS_LOGS" \
              "$GF_PATHS_PLUGINS" \
-             "$GF_PATHS_DATA" && \
-    cp conf/sample.ini "$GF_PATHS_CONFIG" && \
+             "$GF_PATHS_DATA"
+
+RUN cp conf/prisma.ini "$GF_PATHS_CONFIG" && \
     cp conf/ldap.toml /etc/grafana/ldap.toml && \
     chown -R "grafana:$GF_GID_NAME" "$GF_PATHS_DATA" "$GF_PATHS_HOME/.aws" "$GF_PATHS_LOGS" "$GF_PATHS_PLUGINS" "$GF_PATHS_PROVISIONING" && \
     chmod -R 777 "$GF_PATHS_DATA" "$GF_PATHS_HOME/.aws" "$GF_PATHS_LOGS" "$GF_PATHS_PLUGINS" "$GF_PATHS_PROVISIONING"
