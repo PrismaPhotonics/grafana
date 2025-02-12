@@ -3,8 +3,8 @@
   "license": "AGPL-3.0-only",
   "private": true,
   "name": "grafana",
-  "version": "11.5.0-pre",
-  "repository": "github:grafana/grafana",
+  "version": "11.5.1",
+  "repository": "github:PrismaPhotonics/grafana",
   "scripts": {
     "build": "NODE_ENV=production nx exec --verbose -- webpack --config scripts/webpack/webpack.prod.js --progress",
     "build:nominify": "yarn run build -- --env noMinify=1",

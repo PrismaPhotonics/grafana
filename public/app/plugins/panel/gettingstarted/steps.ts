@@ -12,23 +12,23 @@ const step2Key = `${keyPrefix}${step2TutorialTitle.replace(' ', '-').trim().toLo
 
 export const getSteps = (): SetupStep[] => [
   {
-    heading: 'Welcome to Grafana',
+    heading: 'Prisma Photonics',
     subheading: 'The steps below will guide you to quickly finish setting up your Grafana installation.',
     title: 'Basic',
     info: 'The steps below will guide you to quickly finish setting up your Grafana installation.',
     done: false,
     cards: [
-      {
-        type: 'tutorial',
-        heading: 'Data source and dashboards',
-        title: step1TutorialTitle,
-        info: 'Set up and understand Grafana if you have no prior experience. This tutorial guides you through the entire process and covers the “Data source” and “Dashboards” steps to the right.',
-        href: 'https://grafana.com/tutorials/grafana-fundamentals',
-        icon: 'grafana',
-        check: () => Promise.resolve(store.get(step1Key)),
-        key: step1Key,
-        done: false,
-      },
+      // {
+      //   type: 'tutorial',
+      //   heading: 'Data source and dashboards',
+      //   title: step1TutorialTitle,
+      //   info: 'Set up and understand Grafana if you have no prior experience. This tutorial guides you through the entire process and covers the “Data source” and “Dashboards” steps to the right.',
+      //   href: 'https://grafana.com/tutorials/grafana-fundamentals',
+      //   icon: 'grafana',
+      //   check: () => Promise.resolve(store.get(step1Key)),
+      //   key: step1Key,
+      //   done: false,
+      // },
       {
         type: 'docs',
         title: 'Add your first data source',

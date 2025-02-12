@@ -49,9 +49,9 @@
       "id": 4,
       "links": [],
       "options": {
-        "feedUrl": "https://grafana.com/blog/news.xml"
+        "feedUrl": "https://www.prismaphotonics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.prismaphotonics.com%2Fmedia-news%2F&format=xml"
       },
-      "title": "Latest from the blog",
+      "title": "Prisma Photonics news",
       "type": "news"
     }
   ],
