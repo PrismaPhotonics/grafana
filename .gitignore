@@ -17,6 +17,9 @@ vendor/
 tsconfig.tsbuildinfo
 __debug_bin*
 
+# Prisma
+prisma/*
+
 # yarn
 .yarn/cache
 .yarn/unplugged

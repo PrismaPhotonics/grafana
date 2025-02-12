@@ -2,9 +2,8 @@ name: Crowdin Download Action
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *"
-
+  # schedule:
+  #   - cron: "0 * * * *"
 jobs:
   download-sources-from-crowdin:
     runs-on: ubuntu-latest
