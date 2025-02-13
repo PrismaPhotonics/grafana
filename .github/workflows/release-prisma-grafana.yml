@@ -1,0 +1,58 @@
+name: Release Prisma Grafana
+
+on:
+  workflow_dispatch:
+    inputs:
+      push:
+        description: 'Push Image to ECR'
+        required: true
+        default: false
+        type: boolean
+
+env:
+  FORCE_COLOR: "1"
+  DOCKER_REPOSITORY: grafana-prisma-power
+
+jobs:
+  build:
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read  # This is required for actions/checkout
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Get Short Git Sha
+        id: short-sha
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE_ARN }}
+          role-session-name: github-action-grafana-release
+          aws-region: ${{ vars.AWS_DEFAULT_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2.0.1
+        with:
+          registries: ${{ vars.AWS_ECR_ACCOUNT_ID }}
+
+      - name: Build image
+        run: make build-docker-full
+        env:
+          PLATFORM: linux/amd64
+      
+      - name: Push image to Amazon ECR
+        if: ${{ inputs.push }}
+        run: |
+          docker tag grafana/grafana-oss:dev $ECR_REGISTRY/$DOCKER_REPOSITORY:$IMAGE_TAG
+          docker tag grafana/grafana-oss:dev $ECR_REGISTRY/$DOCKER_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$DOCKER_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$DOCKER_REPOSITORY:latest
+        env:
+          IMAGE_TAG: ${{ steps.short-sha.outputs.sha_short }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
