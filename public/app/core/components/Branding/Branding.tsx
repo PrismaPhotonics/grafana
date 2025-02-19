@@ -60,7 +60,7 @@ export class Branding {
   static MenuLogo = MenuLogo;
   static LoginBoxBackground = LoginBoxBackground;
   static AppTitle = 'Prisma Photonics';
-  static LoginTitle = 'PrismaPower Suite';
+  static LoginTitle = 'Control Center';
   static HideEdition = false;
   static GetLoginSubTitle = (): null | string => {
     return null;
