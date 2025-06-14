@@ -4,7 +4,7 @@
   "private": true,
   "name": "grafana",
   "version": "11.5.6",
-  "repository": "github:grafana/grafana",
+  "repository": "github:PrismaPhotonics/grafana",
   "scripts": {
     "build": "NODE_ENV=production nx exec --verbose -- webpack --config scripts/webpack/webpack.prod.js --progress",
     "build:nominify": "yarn run build -- --env noMinify=1",

@@ -16,27 +16,27 @@ export interface FooterLink {
 
 export let getFooterLinks = (): FooterLink[] => {
   return [
-    {
-      target: '_blank',
-      id: 'documentation',
-      text: t('nav.help/documentation', 'Documentation'),
-      icon: 'document-info',
-      url: 'https://grafana.com/docs/grafana/latest/?utm_source=grafana_footer',
-    },
-    {
-      target: '_blank',
-      id: 'support',
-      text: t('nav.help/support', 'Support'),
-      icon: 'question-circle',
-      url: 'https://grafana.com/products/enterprise/?utm_source=grafana_footer',
-    },
-    {
-      target: '_blank',
-      id: 'community',
-      text: t('nav.help/community', 'Community'),
-      icon: 'comments-alt',
-      url: 'https://community.grafana.com/?utm_source=grafana_footer',
-    },
+    // {
+    //   target: '_blank',
+    //   id: 'documentation',
+    //   text: t('nav.help/documentation', 'Documentation'),
+    //   icon: 'document-info',
+    //   url: 'https://grafana.com/docs/grafana/latest/?utm_source=grafana_footer',
+    // },
+    // {
+    //   target: '_blank',
+    //   id: 'support',
+    //   text: t('nav.help/support', 'Support'),
+    //   icon: 'question-circle',
+    //   url: 'https://grafana.com/products/enterprise/?utm_source=grafana_footer',
+    // },
+    // {
+    //   target: '_blank',
+    //   id: 'community',
+    //   text: t('nav.help/community', 'Community'),
+    //   icon: 'comments-alt',
+    //   url: 'https://community.grafana.com/?utm_source=grafana_footer',
+    // },
   ];
 };
 
@@ -58,8 +58,8 @@ export function getVersionLinks(hideEdition?: boolean): FooterLink[] {
     links.push({
       target: '_blank',
       id: 'license',
-      text: `${buildInfo.edition}${stateInfo}`,
-      url: licenseInfo.licenseUrl,
+      text: `Website`,
+      url: `https://www.prismaphotonics.com/?utm_source=power_dashboard_footer`,
     });
   }
 
@@ -73,18 +73,18 @@ export function getVersionLinks(hideEdition?: boolean): FooterLink[] {
     target: '_blank',
     id: 'version',
     text: buildInfo.versionString,
-    url: hasReleaseNotes ? `https://github.com/grafana/grafana/blob/main/CHANGELOG.md` : undefined,
+    url: hasReleaseNotes ? `https://github.com/PrismaPhotonics/grafana/blob/main/CHANGELOG.md` : undefined,
   });
 
-  if (buildInfo.hasUpdate) {
-    links.push({
-      target: '_blank',
-      id: 'updateVersion',
-      text: `New version available!`,
-      icon: 'download-alt',
-      url: 'https://grafana.com/grafana/download?utm_source=grafana_footer',
-    });
-  }
+  // if (buildInfo.hasUpdate) {
+  //   links.push({
+  //     target: '_blank',
+  //     id: 'updateVersion',
+  //     text: `New version available!`,
+  //     icon: 'download-alt',
+  //     url: 'https://grafana.com/grafana/download?utm_source=grafana_footer',
+  //   });
+  // }
 
   return links;
 }
