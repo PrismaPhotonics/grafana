@@ -457,6 +457,8 @@ require github.com/grafana/grafana/apps/alerting/notifications v0.0.0-2024120916
 
 require github.com/grafana/grafana/apps/investigation v0.0.0-20241218083103-f46c07aba7b6 // @fcjack @matryer
 
+require github.com/grafana/authlib/types v0.0.0-20250721184729-1593a38e4933
+
 require (
 	cel.dev/expr v0.23.1 // indirect
 	cloud.google.com/go/longrunning v0.6.2 // indirect
@@ -492,7 +494,7 @@ require (
 	github.com/envoyproxy/go-control-plane/envoy v1.32.4 // indirect
 	github.com/gammazero/deque v0.2.1 // indirect
 	github.com/go-jose/go-jose/v4 v4.1.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
+	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
 	github.com/golang/geo v0.0.0-20210211234256-740aa86cb551 // indirect
 	github.com/grafana/jsonparser v0.0.0-20240425183733-ea80629e1a32 // indirect
 	github.com/grafana/loki/pkg/push v0.0.0-20231124142027-e52380921608 // indirect
