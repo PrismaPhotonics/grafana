@@ -5,7 +5,7 @@
 
 ARG BASE_IMAGE=alpine:3.21
 ARG JS_IMAGE=node:22-alpine
-ARG JS_PLATFORM=linux/amd64
+ARG JS_PLATFORM
 ARG GO_IMAGE=golang:1.24.3-alpine
 
 # Default to building locally
