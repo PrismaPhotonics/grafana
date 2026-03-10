@@ -335,6 +335,7 @@ shellcheck: $(SH_FILES) ## Run checks for shell scripts.
 
 TAG_SUFFIX=$(if $(WIRE_TAGS)!=oss,-$(WIRE_TAGS))
 PLATFORM=linux/amd64
+DOCKER_TAG ?= grafana/grafana$(TAG_SUFFIX):dev
 
 .PHONY: build-docker-full
 build-docker-full: ## Build Docker image for development.
@@ -347,7 +348,7 @@ build-docker-full: ## Build Docker image for development.
 	--build-arg WIRE_TAGS=$(WIRE_TAGS) \
 	--build-arg COMMIT_SHA=$$(git rev-parse HEAD) \
 	--build-arg BUILD_BRANCH=$$(git rev-parse --abbrev-ref HEAD) \
-	--tag grafana/grafana$(TAG_SUFFIX):dev \
+	--tag $(DOCKER_TAG) \
 	$(DOCKER_BUILD_ARGS)
 
 .PHONY: build-docker-full-ubuntu
