@@ -68,14 +68,11 @@ jobs:
 
       - name: Build and push image to Amazon ECR
         if: github.event_name == 'release' || inputs.push
-        run: make build-docker-full
+        run: make build-docker-full PLATFORM=linux/amd64,linux/arm64
         env:
-          PLATFORM: linux/amd64,linux/arm64
           DOCKER_TAG: ${{ steps.login-ecr.outputs.registry }}/${{ env.DOCKER_REPOSITORY }}:${{ env.IMAGE_TAG }}
           DOCKER_BUILD_ARGS: --push
 
       - name: Build image (no push)
         if: github.event_name != 'release' && !inputs.push
-        run: make build-docker-full
-        env:
-          PLATFORM: linux/amd64,linux/arm64
+        run: make build-docker-full PLATFORM=linux/amd64,linux/arm64
