@@ -27,7 +27,7 @@ require (
 	github.com/apache/arrow-go/v18 v18.0.1-0.20241212180703-82be143d7c30 // @grafana/plugins-platform-backend
 	github.com/armon/go-radix v1.0.0 // @grafana/grafana-app-platform-squad
 	github.com/aws/aws-sdk-go v1.55.5 // @grafana/aws-datasources
-	github.com/beevik/etree v1.4.1 // @grafana/grafana-backend-group
+	github.com/beevik/etree v1.6.0 // @grafana/grafana-backend-group
 	github.com/benbjohnson/clock v1.3.5 // @grafana/alerting-backend
 	github.com/blang/semver/v4 v4.0.0 // indirect; @grafana/grafana-developer-enablement-squad
 	github.com/blevesearch/bleve/v2 v2.5.0 // @grafana/grafana-search-and-storage
@@ -131,11 +131,11 @@ require (
 	github.com/prometheus/prometheus v0.301.0 // @grafana/alerting-backend
 	github.com/redis/go-redis/v9 v9.6.3 // @grafana/alerting-backend
 	github.com/robfig/cron/v3 v3.0.1 // @grafana/grafana-backend-group
-	github.com/russellhaering/goxmldsig v1.4.0 // @grafana/grafana-backend-group
+	github.com/russellhaering/goxmldsig v1.6.0 // @grafana/grafana-backend-group
 	github.com/spf13/cobra v1.9.1 // @grafana/grafana-app-platform-squad
 	github.com/spf13/pflag v1.0.6 // @grafana-app-platform-squad
 	github.com/spyzhov/ajson v0.9.0 // @grafana/grafana-app-platform-squad
-	github.com/stretchr/testify v1.10.0 // @grafana/grafana-backend-group
+	github.com/stretchr/testify v1.11.1 // @grafana/grafana-backend-group
 	github.com/teris-io/shortid v0.0.0-20171029131806-771a37caa5cf // @grafana/grafana-backend-group
 	github.com/ua-parser/uap-go v0.0.0-20250213224047-9c035f085b90 // @grafana/grafana-backend-group
 	github.com/urfave/cli v1.22.16 // indirect; @grafana/grafana-backend-group
@@ -456,6 +456,8 @@ require github.com/openzipkin/zipkin-go v0.4.3 // @grafana/oss-big-tent
 require github.com/grafana/grafana/apps/alerting/notifications v0.0.0-20241209165425-c324376999f7 // @grafana/alerting-backend
 
 require github.com/grafana/grafana/apps/investigation v0.0.0-20241218083103-f46c07aba7b6 // @fcjack @matryer
+
+require github.com/grafana/authlib/types v0.0.0-20260316143530-e1d123886039
 
 require (
 	cel.dev/expr v0.23.1 // indirect
